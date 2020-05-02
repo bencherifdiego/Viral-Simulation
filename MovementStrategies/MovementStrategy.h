@@ -8,6 +8,6 @@ namespace corsim
     class MovementStrategy
     {
         public:
-        virtual int move(int dt, std::vector<Subject> &subjects) = 0;
+        virtual int move(int dt, std::vector<Subject> &subjects, int week) = 0;
     };
 }

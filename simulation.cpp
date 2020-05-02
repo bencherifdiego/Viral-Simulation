@@ -87,8 +87,13 @@ void Simulation::tick()
     //     }
     // }
 
-    LockdownMovement strat;
-    int numberInfected = strat.move(dt, _subjects);
+    RegularMovement regStrat;
+    LockdownMovement lockStrat;
+    SmartLockdownMovement smartStrat;
+
+    //int numberInfected = regStrat.move(dt, _subjects);
+    //int numberInfected = lockStrat.move(dt, _subjects);
+    int numberInfected = smartStrat.move(dt, _subjects, counter/30);
 
     if(counter % 30 == 0)
     {
