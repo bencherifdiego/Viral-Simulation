@@ -74,18 +74,21 @@ void Simulation::tick()
         }
     }
 
-    int numberInfected = 0;
+    //int numberInfected = 0;
 
-    for(Subject& s : _subjects)
-    {
-        s.set_x(s.x() + s.dx() * dt);
-        s.set_y(s.y() + s.dy() * dt);
+    // for(Subject& s : _subjects)
+    // {
+    //     s.set_x(s.x() + s.dx() * dt);
+    //     s.set_y(s.y() + s.dy() * dt);
 
-        if(s.infected())
-        {
-            numberInfected++;
-        }
-    }
+    //     if(s.infected())
+    //     {
+    //         numberInfected++;
+    //     }
+    // }
+
+    RegularMovementStrategy reg;
+    int numberInfected = reg.move(dt, _subjects);
 
     if(counter % 30 == 0)
     {
