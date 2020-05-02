@@ -22,7 +22,7 @@
 #include "canvas.h"
 #include "statistics_handler.h"
 
-#include "MovementStrategies/RegularMovementStrategy.h"
+#include "MovementStrategies/Strategies.h"
 
 namespace corsim
 {

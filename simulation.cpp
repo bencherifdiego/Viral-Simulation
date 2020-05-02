@@ -87,8 +87,8 @@ void Simulation::tick()
     //     }
     // }
 
-    RegularMovementStrategy reg;
-    int numberInfected = reg.move(dt, _subjects);
+    LockdownMovement strat;
+    int numberInfected = strat.move(dt, _subjects);
 
     if(counter % 30 == 0)
     {
