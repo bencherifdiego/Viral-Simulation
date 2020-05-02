@@ -90,10 +90,12 @@ void Simulation::tick()
     RegularMovement regStrat;
     LockdownMovement lockStrat;
     SmartLockdownMovement smartStrat;
+    RegenMovement regenStrat;
 
-    //int numberInfected = regStrat.move(dt, _subjects);
-    //int numberInfected = lockStrat.move(dt, _subjects);
+    //int numberInfected = regStrat.move(dt, _subjects, counter/30);
+    //int numberInfected = lockStrat.move(dt, _subjects, counter/30);
     int numberInfected = smartStrat.move(dt, _subjects, counter/30);
+    //int numberInfected = regenStrat.move(dt, _subjects, counter/30);
 
     if(counter % 30 == 0)
     {

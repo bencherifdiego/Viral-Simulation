@@ -95,4 +95,27 @@ namespace corsim
         
         return numberInfected;
     }
+
+    int RegenMovement::move(int dt, std::vector<Subject> &subjects, int week)
+    {
+        int numberInfected = 0;
+        for(Subject& s : subjects)
+        {
+            if (s.timer > 0)
+            {
+                s.timer--;
+                if (s.timer == 0)
+                {
+                    s.deInfect();
+                }
+            }
+            s.set_x(s.x() + s.dx() * dt);
+            s.set_y(s.y() + s.dy() * dt);
+            if(s.infected())
+            {
+                numberInfected++;
+            }
+        }
+        return numberInfected;
+    }
 }

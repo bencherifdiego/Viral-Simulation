@@ -26,4 +26,10 @@ namespace corsim
         private:
         bool run;
     };
+
+    class RegenMovement: public MovementStrategy
+    {
+        public:
+        int move(int dt, std::vector<Subject> &subjects, int week);
+    };
 }
