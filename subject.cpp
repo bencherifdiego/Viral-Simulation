@@ -87,6 +87,7 @@ void Subject::infect()
 void Subject::deInfect()
 {
     this->_infected = false;
+    this->timer2 = 150;
 }
 
 double Subject::angle()

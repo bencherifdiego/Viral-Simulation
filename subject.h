@@ -44,6 +44,7 @@ class Subject
         void setLocked(bool lock);
         bool getLocked();
         int timer = 0;
+        int timer2 = 0;
     private:
         double _x = 0,_y = 0, _dx = 0, _dy = 0;
         bool _infected = false;

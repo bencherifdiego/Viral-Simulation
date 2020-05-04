@@ -74,18 +74,18 @@ void Simulation::tick()
         }
     }
 
-    //int numberInfected = 0;
+        //int numberInfected = 0;
 
-    // for(Subject& s : _subjects)
-    // {
-    //     s.set_x(s.x() + s.dx() * dt);
-    //     s.set_y(s.y() + s.dy() * dt);
+        // for(Subject& s : _subjects)
+        // {
+        //     s.set_x(s.x() + s.dx() * dt);
+        //     s.set_y(s.y() + s.dy() * dt);
 
-    //     if(s.infected())
-    //     {
-    //         numberInfected++;
-    //     }
-    // }
+        //     if(s.infected())
+        //     {
+        //         numberInfected++;
+        //     }
+        // }
 
     RegularMovement regStrat;
     LockdownMovement lockStrat;
@@ -94,8 +94,8 @@ void Simulation::tick()
 
     //int numberInfected = regStrat.move(dt, _subjects, counter/30);
     //int numberInfected = lockStrat.move(dt, _subjects, counter/30);
-    int numberInfected = smartStrat.move(dt, _subjects, counter/30);
-    //int numberInfected = regenStrat.move(dt, _subjects, counter/30);
+    //int numberInfected = smartStrat.move(dt, _subjects, counter/30);
+    int numberInfected = regenStrat.move(dt, _subjects, counter/30);
 
     if(counter % 30 == 0)
     {
@@ -121,6 +121,10 @@ void Simulation::draw_to_canvas()
         if(s.infected())
         {
             c = RED;
+        }
+        if(s.timer2 > 0)
+        {
+            c = GREEN;
         }
 
         _canvas.get()->draw_ellipse(s.x(), s.y(), s.radius(), c);
@@ -164,8 +168,14 @@ void Simulation::subject_collision(Subject& s1, Subject& s2)
     {
         if(s1.infected() || s2.infected())
         {
+            if (s1.timer2 == 0)
+            {
             s1.infect();
+            }
+            if (s2.timer2 == 0)
+            {
             s2.infect();
+            }
         }        
 
         double theta1 = s1.angle();

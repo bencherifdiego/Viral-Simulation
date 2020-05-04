@@ -109,6 +109,10 @@ namespace corsim
                     s.deInfect();
                 }
             }
+            if (s.timer2 > 0)
+            {
+                s.timer2--;
+            }
             s.set_x(s.x() + s.dx() * dt);
             s.set_y(s.y() + s.dy() * dt);
             if(s.infected())
