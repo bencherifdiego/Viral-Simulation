@@ -39,11 +39,10 @@ namespace corsim
             {
                 s.set_x(s.x() + s.dx() * dt);
                 s.set_y(s.y() + s.dy() * dt);
-
-                if(s.infected())
-                {
-                    numberInfected++;
-                }
+            }
+            if(s.infected())
+            {
+                numberInfected++;
             }
         }
         
@@ -85,11 +84,10 @@ namespace corsim
             {
                 s.set_x(s.x() + s.dx() * dt);
                 s.set_y(s.y() + s.dy() * dt);
-
-                if(s.infected())
-                {
-                    numberInfected++;
-                }
+            }
+            if(s.infected())
+            {
+                numberInfected++;
             }
         }
         
